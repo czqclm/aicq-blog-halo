@@ -81,6 +81,9 @@ public class DefaultAttachmentService implements AttachmentService {
                     spec = new Attachment.AttachmentSpec();
                     attachment.setSpec(spec);
                 }
+                if (spec.getDisplayName().lastIndexOf(".avif") > 0) {
+                    spec.setMediaType("image/avif");
+                }
                 spec.setOwnerName(username);
                 if (StringUtils.hasText(groupName)) {
                     spec.setGroupName(groupName);
